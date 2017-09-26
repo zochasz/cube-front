@@ -4,6 +4,12 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AuthService } from './shared/services/auth.service';
+import { UserService } from './shared/services/user.service';
+import { ProjectService } from './shared/services/project.service';
+import { LetterService } from './shared/services/letter.service';
+import { PortfolioService } from './shared/services/portfolio.service';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -68,7 +74,13 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserService,
+    ProjectService,
+    LetterService,
+    PortfolioService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

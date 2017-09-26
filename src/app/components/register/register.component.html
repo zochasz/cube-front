@@ -1,3 +1,14 @@
-<p>
-  register works!
-</p>
+<form (ngSubmit)="onSubmitRegister(registerForm)" #registerForm="ngForm">
+
+    <h1>Register</h1>
+
+      <label for="email">Email: </label>
+      <input type="text" name="email" [(ngModel)]="user.email" required>
+    
+      <label for="password">Password: </label>
+      <input type="password" name="password" [(ngModel)]="user.password" required>
+
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+</form>
