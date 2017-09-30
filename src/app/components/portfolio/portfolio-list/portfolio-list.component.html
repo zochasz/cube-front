@@ -1,3 +1,9 @@
-<p>
-  portfolio-list works!
-</p>
+<div>
+  <button (click)="addProject()">+</button>
+  <h3> PORTFOLIOS </h3>
+  <ul>
+    <li *ngFor="let portfolio of portfolios">
+      {{ portfolio.title }}
+    </li>
+  </ul>
+</div>
