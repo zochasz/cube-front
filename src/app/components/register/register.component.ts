@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.user).subscribe(
       (user) => {
         registerForm.reset();
-        this.router.navigate(['/user']);
+        this.router.navigate(['/dashboard']);
       },
       (error) => { this.error = error; }
     );

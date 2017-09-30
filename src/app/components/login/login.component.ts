@@ -11,7 +11,7 @@ import { User } from './../../shared/models/user.model';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = new User();
+    user: User = new User();
     error: string;
 
     constructor(private authService: AuthService, private router: Router) { }
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.user).subscribe(
         (user) => {
           loginForm.reset();
-          this.router.navigate(['/user']);
+          this.router.navigate(['/dashboard']);
         },
         (error) => { this.error = error; }
       );
