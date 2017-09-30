@@ -1,0 +1,35 @@
+div {
+  margin: 20px auto;
+  width: 96%;
+  min-height: 100px;
+  border: 1px solid #e9e6c3;
+  padding: 5px;
+}
+h3 {
+  margin-left: 20px;
+}
+button {
+  background-color: #302d28;
+  color: #e9e6c3;
+  font-size: 30px;
+  border-width: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 0;
+  float: right;
+  text-align: left;
+}
+table {
+  width: 100%;
+  text-align: left;
+}
+th:first-of-type{
+  width: 15%;
+}
+@media (min-width: 600px) {
+  div {
+    margin: 20px 1% 20px 2%;
+    width: 30.6666%;
+    float: left;
+  }
+}

@@ -1,3 +1,10 @@
-<p>
-  project-list works!
-</p>
+<div>
+  <button class="add" (click)="addProject()">+</button>
+  <h3> PROJECTS </h3>
+    <table>
+      <tr *ngFor="let project of projects">
+        <th (click)="delete( project._id )"> X </th>
+        <th (click)="showProject( project._id )"> {{ project.title }}</th>
+      </tr>
+    </table>
+</div>
