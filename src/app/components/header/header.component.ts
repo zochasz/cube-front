@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from './../../shared/services/auth.service';
+import { User } from './../../shared/models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  user: User;
+  error: string;
 
-  constructor() { }
+  constructor( private authService: AuthService, private router: Router ) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  register() { this.router.navigate(['/register']); }
+  login() { this.router.navigate(['/login']); }
+  logout() {
+    this.authService.logout().subscribe(
+      (ok) => { this.router.navigate(['/']); },
+      (error) => { this.error = error; },
+    );
   }
-
 }
