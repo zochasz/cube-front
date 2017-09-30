@@ -1,10 +1,10 @@
-export class Letter {
+export class Portfolio {
     _id: string;
     title: string;
-    from: string;
-    to: string;
-    text: string;
     author: string;
+    letters: [string];
+    projects: [string];
+    publicID: string;
     createdAd: Date;
     updatedAt: Date;
 }
