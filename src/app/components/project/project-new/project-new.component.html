@@ -1,31 +1,31 @@
 <div class="new">
       <form (ngSubmit)="onSubmitNew(newForm)" #newForm="ngForm">
           <label for="title">Title</label>
-          <input type="text" name="title" [(ngModel)]="title" #newTitle="ngModel">
+          <input type="text" name="title" [(ngModel)]="title">
 
           <label for="start">Starting Date</label>
-          <input type="date" name="start" [(ngModel)]="start" #newStart="ngModel">
+          <input type="date" name="start" [(ngModel)]="start">
 
           <label for="end">Ending Date</label>
-          <input type="date" name="end" [(ngModel)]="end" #newEnd="ngModel">
+          <input type="date" name="end" [(ngModel)]="end">
 
           <label for="surface">Gross floor area</label>
-          <input type="number" name="surface" [(ngModel)]="surface" #newSurface="ngModel">
+          <input type="number" name="surface" [(ngModel)]="surface">
 
           <label for="budget">Total cost</label>
-          <input type="number" name="budget" [(ngModel)]="budget" #newBudget="ngModel">
+          <input type="number" name="budget" [(ngModel)]="budget">
 
           <label for="client">Client</label>
-          <input type="text" name="client" [(ngModel)]="client" #newClient="ngModel">
+          <input type="text" name="client" [(ngModel)]="client">
 
           <label for="description">Project description</label>
-          <input type="text" name="description" [(ngModel)]="description" #newDescription="ngModel">
+          <input type="text" name="description" [(ngModel)]="description">
 
           <label for="location">Project location</label>
-          <input type="text" name="location" [(ngModel)]="location" #newLocation="ngModel">
+          <input type="text" name="location" [(ngModel)]="location">
 
           <label for="externalEngineer">External Collabolator</label>
-          <input type="text" name="externalEngineer" [(ngModel)]="externalEngineer" #newExternalEngineer="ngModel">
+          <input type="text" name="externalEngineer" [(ngModel)]="externalEngineer">
 
           <button type="submit" class="save">Add</button>
       </form>
