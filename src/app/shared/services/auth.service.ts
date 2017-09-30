@@ -9,11 +9,8 @@ import 'rxjs/add/observable/throw';
 import { User } from './../models/user.model';
 
 @Injectable()
-export class AuthService {
-
-  private baseUrl = 'http://localhost:3000/api';
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-  private options = new RequestOptions({ headers: this.headers, withCredentials: true });
+export class AuthService extends BaseApiService {
+  private static baseEndPoint = `${BaseApiService.baseApi}`;
   private user: User;
 
   constructor(private http: Http) {
@@ -30,7 +27,7 @@ export class AuthService {
       email: user.email,
       password: user.password
     };
-    return this.http.post(`${this.baseUrl}/login`, JSON.stringify(data), this.options)
+    return this.http.post(`${this.baseEndPoint}/login`, JSON.stringify(data), this.options)
       .map((res: Response) => {
         this.authenticate(res.json());
         return this.user;
@@ -43,7 +40,7 @@ export class AuthService {
     email: user.email,
     password: user.password
   };
-  return this.http.post(`${this.baseUrl}/register`, JSON.stringify(data), this.options)
+  return this.http.post(`${this.baseEndPoint}/register`, JSON.stringify(data), this.options)
     .map((res: Response) => {
       this.authenticate(res.json());
       return this.user;
@@ -52,7 +49,7 @@ export class AuthService {
 }
 
   logout(): Observable<boolean | string> {
-    return this.http.post(`${this.baseUrl}/logout`, null, this.options)
+    return this.http.post(`${this.baseEndPoint}/logout`, null, this.options)
       .map((res: Response) => {
         this.user = null;
         localStorage.removeItem('user');
