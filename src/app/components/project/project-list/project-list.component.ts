@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Project } from './../../../shared/models/project.model';
-import { ProjectService } from './../../../shared/services/project.service'
+import { ProjectService } from './../../../shared/services/project.service';
 import * as _ from 'lodash';
 
 @Component({

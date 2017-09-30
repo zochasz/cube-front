@@ -22,6 +22,11 @@ export class ProjectService extends BaseApiService {
         .map(res => res.json())
         .catch(super.handleError);
   }
+  get(id: string): Observable<Project> {
+      return this.http.get(`${ProjectService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+  }
   remove(id: string): Observable<boolean> {
       return this.http.delete(`${ProjectService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
           .map(res => res.status === 204)

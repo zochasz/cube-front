@@ -1,10 +1,10 @@
-<p>{{ project.title }}</p>
-<p>{{ project.start }}</p>
-<p>{{ project.end }}</p>
-<p>{{ project.surface }}</p>
-<p>{{ project.budget }}</p>
-<p>{{ project.externalEngineer }}</p>
-<p>{{ project.client }}</p>
-<p>{{ project.description }}</p>
-<p>{{ project.location }}</p>
-<button (click)="edit( project._id )"> X </button>
+<p>Title: {{ project?.title }}</p>
+<p>Started: {{ project?.start }}</p>
+<p>Ended: {{ project?.end }}</p>
+<p>Gross floor area: {{ project?.surface }} sqm </p>
+<p>Total Cost: {{ project?.budget }} $</p>
+<p>External Collaborators: {{ project?.externalEngineer }}</p>
+<p>Client: {{ project?.client }}</p>
+<p>Description: {{ project?.description }}</p>
+<p>Location: {{ project?.location }}</p>
+<button (click)="edit( project?._id )"> X </button>
