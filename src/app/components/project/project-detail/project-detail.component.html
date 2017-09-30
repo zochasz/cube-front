@@ -1,10 +1,30 @@
-<p>Title: {{ project?.title }}</p>
-<p>Started: {{ project?.start }}</p>
-<p>Ended: {{ project?.end }}</p>
-<p>Gross floor area: {{ project?.surface }} sqm </p>
-<p>Total Cost: {{ project?.budget }} $</p>
-<p>External Collaborators: {{ project?.externalEngineer }}</p>
-<p>Client: {{ project?.client }}</p>
-<p>Description: {{ project?.description }}</p>
-<p>Location: {{ project?.location }}</p>
-<button (click)="edit( project?._id )"> X </button>
+<div class="edit">
+      <form (ngSubmit)="onSubmitEdit(editForm, project?._id )" #editForm="ngForm">
+          <label for="title">Title</label>
+          <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{project?.title}}" type="text" name="title" [(ngModel)]="title"></textarea>
+
+          <label for="start">Starting Date</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{project?.start | date:'yyyy-MM-dd' }}" type="date" name="start" [(ngModel)]="start">
+
+          <label for="end">Ending Date</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{project?.end | date:'yyyy-MM-dd' }}" type="date" name="end" [(ngModel)]="end">
+
+          <label for="surface">Gross floor area</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.surface }}" type="number" name="surface" [(ngModel)]="surface">
+
+          <label for="budget">Total cost</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.budget }}" type="number" name="budget" [(ngModel)]="budget">
+
+          <label for="client">Client</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.client }}" type="text" name="client" [(ngModel)]="client">
+
+          <label for="description">Project description</label>
+          <textarea class="height7"(change)="editForm.ngSubmit.emit()" value="{{ project?.description }}" type="text" name="description" [(ngModel)]="description"></textarea>
+
+          <label for="location">Project location</label>
+          <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{ project?.location }}" type="text" name="location" [(ngModel)]="location"></textarea>
+
+          <label for="externalEngineer">External Collabolator</label>
+          <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{ project?.externalEngineer }}" type="text" name="externalEngineer" [(ngModel)]="externalEngineer"></textarea>
+      </form>
+</div>

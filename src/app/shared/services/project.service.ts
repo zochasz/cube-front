@@ -33,7 +33,6 @@ export class ProjectService extends BaseApiService {
           .catch(super.handleError);
   }
   create(project): Observable<Project> {
-    console.log(project);
      const data = {
        title: project.title,
        start: project.start,
@@ -49,6 +48,22 @@ export class ProjectService extends BaseApiService {
        .map(res => res.json())
        .catch(super.handleError);
    }
+   edit(project, id): Observable<Project> {
+      const data = {
+        title: project.title,
+        start: project.start,
+        end: project.end,
+        surface: project.surface,
+        budget: project.budget,
+        externalEngineer: project.externalEngineer,
+        client: project.client,
+        description: project.description,
+        location: project.location
+      };
+      return this.http.put(`${ProjectService.baseEndPoint}/${id}`, JSON.stringify(data), BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+    }
 }
 
 //
