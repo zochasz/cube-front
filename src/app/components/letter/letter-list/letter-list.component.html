@@ -1,3 +1,9 @@
-<p>
-  letter-list works!
-</p>
+<div>
+  <button (click)="addProject()">+</button>
+  <h3> LETTERS </h3>
+  <ul>
+    <li *ngFor="let letter of letters">
+      {{ letter.title }}
+    </li>
+  </ul>
+</div>

@@ -1,15 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Letter } from './../../../shared/models/letter.model';
+import { LetterService } from './../../../shared/services/letter.service'
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-letter-list',
   templateUrl: './letter-list.component.html',
-  styleUrls: ['./letter-list.component.css']
+  styleUrls: [
+    './../../project/project-list/project-list.component.css',
+    './letter-list.component.css'
+  ]
 })
 export class LetterListComponent implements OnInit {
+  letters: Array<Letter> = [];
 
-  constructor() { }
+  constructor( private letterService: LetterService, private router: Router ) { }
 
   ngOnInit() {
+    this.fetchList();
   }
-
+  fetchList() {
+    this.letterService.getAll().subscribe(
+      letters => this.letters = letters,
+      error => console.log(error)
+    );
+  }
+  addProject() {
+    this.router.navigate(['/letter/new']);
+  }
 }
