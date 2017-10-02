@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
 import { ProjectService } from './shared/services/project.service';
@@ -63,7 +65,9 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [
     AuthService,
