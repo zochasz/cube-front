@@ -31,4 +31,19 @@ export class PortfolioListComponent implements OnInit {
   addProject() {
     this.router.navigate(['/portfolio/new']);
   }
+  showPortfolio(id: string) {
+    this.router.navigate([`/portfolio/${id}`]);
+  }
+  delete(id: string) {
+    this.portfolioService.remove(id)
+    .subscribe((removed) => {
+      if (removed) {
+        this.portfolios = this.portfolios.filter(portfolio => portfolio._id !== id)
+      } else {
+        console.log ("error: Portfolio not found")
+      }
+    },
+    (err) => console.log(err)
+    )
+  }
 }

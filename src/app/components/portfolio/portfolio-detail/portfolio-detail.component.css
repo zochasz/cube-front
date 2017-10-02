@@ -1,0 +1,26 @@
+.edit {
+  width: 320px;
+  margin: 100px auto;
+}
+label {
+  display: block;
+  margin: 5px 0;
+}
+input, textarea {
+  width: 300px;
+  height: 20px;
+  background-color: #302d28;
+  display: block;
+  margin-bottom: 20px;
+  border: none;
+  font-size: 16px;
+  color: #e9e6c3;
+  text-indent: 20px;
+  word-wrap: normal;
+}
+input:focus, textarea:focus {
+  border: none;
+}
+textarea {
+  resize: none;
+}

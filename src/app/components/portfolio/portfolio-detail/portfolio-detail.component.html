@@ -1,3 +1,21 @@
-<p>
-  portfolio-detail works!
-</p>
+<div class="edit">
+      <form (ngSubmit)="onSubmitEdit(editForm, portfolio?._id )" #editform="ngForm">
+          <label for="title">Title</label>
+          <textarea (change)="editForm.ngSubmit.emit()" value="{{ portfolio?.title }}" type="text" name="title" [(ngModel)]="title"></textarea>
+
+          <label for="projects">Projects</label>
+          <!-- <p *ngFor="let project of portfolio.projects"> -->
+
+          <label for="letters">Letters</label>
+
+
+      </form>
+</div>
+
+<!-- <select multiple name="projects" [(ngModel)]="portfolio.projects">
+  <option *ngFor="let project of projects" [value]="project._id">{{ project.title }}</option>
+</select>
+
+<select multiple name="letters" [(ngModel)]="portfolio.letters">
+  <option *ngFor="let letter of letters" [value]="letter._id">{{ letter.title }}</option>
+</select> -->

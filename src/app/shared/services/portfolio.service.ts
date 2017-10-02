@@ -33,6 +33,11 @@ export class PortfolioService extends BaseApiService{
         .map(res => res.json())
         .catch(super.handleError);
   }
+  get(id: string): Observable<Portfolio> {
+      return this.http.get(`${PortfolioService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+  }
   create(portfolio): Observable<Portfolio> {
      const data = {
        title: portfolio.title,
@@ -43,4 +48,19 @@ export class PortfolioService extends BaseApiService{
        .map(res => res.json())
        .catch(super.handleError);
    }
+   remove(id: string): Observable<boolean> {
+       return this.http.delete(`${PortfolioService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
+           .map(res => res.status === 204)
+           .catch(super.handleError);
+   }
+   edit(portfolio, id): Observable<Portfolio> {
+      const data = {
+        title: portfolio.title,
+        projects: portfolio.projects,
+        letters: portfolio.letters
+      };
+      return this.http.put(`${PortfolioService.baseEndPoint}/${id}`, JSON.stringify(data), BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+    }
 }

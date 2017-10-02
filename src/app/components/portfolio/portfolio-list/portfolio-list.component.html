@@ -1,9 +1,10 @@
 <div>
   <button (click)="addProject()">+</button>
   <h3> PORTFOLIOS </h3>
-  <ul>
-    <li *ngFor="let portfolio of portfolios">
-      {{ portfolio.title }}
-    </li>
-  </ul>
+  <table>
+    <tr *ngFor="let portfolio of portfolios">
+      <th (click)="delete( portfolio._id )"> X </th>
+      <th (click)="showPortfolio( portfolio._id )"> {{ portfolio.title }}</th>
+    </tr>
+  </table>
 </div>
