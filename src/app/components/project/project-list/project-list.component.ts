@@ -38,46 +38,10 @@ export class ProjectListComponent implements OnInit {
       if (removed) {
         this.projects = this.projects.filter(project => project._id !== id)
       } else {
-        console.log ("error: List not found")
+        console.log ("error: Project not found")
       }
     },
     (err) => console.log(err)
     )
   }
 }
-
-// export class ListComponent implements OnInit {
-//
-//
-//   ngOnInit() { }
-//
-//   removeList() {
-//     this.listService.remove(this.list._id)
-//       .subscribe((removed) => {
-//         if (removed) {
-//           this.onDelete.emit(this.list)
-//         } else {
-//           this.toastService.onError({ message: 'List not found'})
-//         }
-//       },
-//       (err) => this.toastService.onError(err)
-//     );
-//   }
-//
-//   editList() {
-//     this.listService.edit(this.list).subscribe(
-//       (list) => {
-//         if (list) {
-//           this.list = list;
-//           this.onEdit.emit(this.list);
-//         } else {
-//           this.toastService.onError({ message: 'List not found' })
-//         }
-//       },
-//       (err) => this.toastService.onError(err)
-//     );
-//   }
-//   addCard(title) {
-//     // TODO: Implement
-//   }
-// }
