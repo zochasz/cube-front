@@ -1,3 +1,17 @@
-<p>
-  letter-new works!
-</p>
+<div class="new">
+      <form (ngSubmit)="onSubmitNew(newForm)" #newForm="ngForm">
+          <label for="title">Title</label>
+          <textarea name="title" [(ngModel)]="title"></textarea>
+
+          <label for="from">From</label>
+          <textarea name="from" [(ngModel)]="from"></textarea>
+
+          <label for="to">To</label>
+          <textarea name="to" [(ngModel)]="to"></textarea>
+
+          <label for="text">Letter content</label>
+          <textarea class="height300px" name="text" [(ngModel)]="text"></textarea>
+
+          <button type="submit" class="save">Add</button>
+      </form>
+</div>

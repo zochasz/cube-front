@@ -1,9 +1,10 @@
 <div>
-  <button (click)="addProject()">+</button>
+  <button (click)="addLetter()">+</button>
   <h3> LETTERS </h3>
-  <ul>
-    <li *ngFor="let letter of letters">
-      {{ letter.title }}
-    </li>
-  </ul>
+  <table>
+    <tr *ngFor="let letter of letters">
+      <th (click)="delete( letter._id )"> X </th>
+      <th (click)="showLetter( letter._id )"> {{ letter.title }}</th>
+    </tr>
+  </table>
 </div>

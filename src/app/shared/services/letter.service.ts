@@ -22,4 +22,36 @@ export class LetterService extends BaseApiService {
     .map(res => res.json())
     .catch(super.handleError);
   }
+  get(id: string): Observable<Letter> {
+      return this.http.get(`${LetterService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+  }
+  remove(id: string): Observable<boolean> {
+      return this.http.delete(`${LetterService.baseEndPoint}/${id}`, BaseApiService.defaultOptions)
+          .map(res => res.status === 204)
+          .catch(super.handleError);
+  }
+  create(letter): Observable<Letter> {
+     const data = {
+       title: letter.title,
+       from: letter.from,
+       to: letter.to,
+       text: letter.text,
+     };
+     return this.http.post(`${LetterService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
+       .map(res => res.json())
+       .catch(super.handleError);
+   }
+   edit(letter, id): Observable<Letter> {
+     const data = {
+       title: letter.title,
+       from: letter.from,
+       to: letter.to,
+       text: letter.text,
+     };
+      return this.http.put(`${LetterService.baseEndPoint}/${id}`, JSON.stringify(data), BaseApiService.defaultOptions)
+        .map(res => res.json())
+        .catch(super.handleError);
+    }
 }

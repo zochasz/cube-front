@@ -27,7 +27,22 @@ export class LetterListComponent implements OnInit {
       error => console.log(error)
     );
   }
-  addProject() {
+  addLetter() {
     this.router.navigate(['/letter/new']);
+  }
+  showLetter(id: string) {
+    this.router.navigate([`/letter/${id}`]);
+  }
+  delete(id: string) {
+    this.letterService.remove(id)
+    .subscribe((removed) => {
+      if (removed) {
+        this.letters = this.letters.filter(letter => letter._id !== id)
+      } else {
+        console.log ("error: Letter not found")
+      }
+    },
+    (err) => console.log(err)
+    )
   }
 }

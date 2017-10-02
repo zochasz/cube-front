@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Letter } from './../../../shared/models/letter.model';
+import { LetterService } from './../../../shared/services/letter.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-letter-new',
@@ -6,10 +11,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./letter-new.component.css']
 })
 export class LetterNewComponent implements OnInit {
+  letter: Letter;
+  error: string;
 
-  constructor() { }
+  constructor(
+    private letterService: LetterService,
+    private router: Router
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onSubmitNew(newForm): void {
+      this.letterService.create(newForm.value).subscribe(
+        () => {
+          newForm.reset();
+          this.router.navigate(['/dashboard']);
+        },
+        (error) => {this.error = error}
+      )
+    }
 }
