@@ -1,10 +1,11 @@
 <div>
-  <button (click)="addProject()">+</button>
   <h3> PORTFOLIOS </h3>
   <table>
     <tr *ngFor="let portfolio of portfolios">
-      <th (click)="delete( portfolio._id )"> X </th>
+      <th></th>
       <th (click)="showPortfolio( portfolio._id )"> {{ portfolio.title }}</th>
+      <th (click)="delete( portfolio._id )"> X </th>
     </tr>
   </table>
+  <button (click)="addProject()">+</button>
 </div>

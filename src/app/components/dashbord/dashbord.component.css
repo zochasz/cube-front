@@ -1,7 +1,4 @@
+
 div {
-  margin: 20px 10% 20px 5%;
-  width: 20%;
-  height: 100px;
-  background-color: grey;
-  float:left;
+  float: none;
 }

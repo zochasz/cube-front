@@ -1,6 +1,67 @@
-div {
+.clearfix{
+  display: block;
+  float: none;
+}
+h3 {
+  text-align: center;
+  margin: 20px auto;
+}
+/*.personalData, .skills, .jobAndSchool {
   margin: 20px auto;
   width: 96%;
   min-height: 100px;
+  border: 1px solid #e9e6c3;
+  padding: 5px;
+  height: 680px;
+}*/
+label {
+  display: block;
+  width: 30%;
+  height: 50px;
+  margin: 5px 0px 5px 2%;
+  float: left;
+  padding: 10px;
   border: 1px solid grey;
+}
+textarea {
+  display: block;
+  width: 66%;
+  height: 50px;
+  margin: 5px 2% 5px 0px;
+  float: left;
+  background-color: #302d28;
+  border: none;
+  border: 1px solid grey;
+  font-size: 16px;
+  color: #e9e6c3;
+  text-indent: 20px;
+  text-align: center;
+  word-wrap: normal;
+  padding-top: 10px;
+}
+textarea:focus {
+  border: none;
+}
+textarea {
+  resize: none;
+}
+/*.marginTop{
+  margin-top: 222px;
+}*/
+@media (min-width: 600px) {
+  .personalData {
+    width: 30.6666%;
+    float: left;
+    margin: 20px 1% 20px 2%;
+  }
+  .jobAndSchool {
+    width: 30.6666%;
+    float: left;
+    margin: 20px 1%;
+  }
+  .skills {
+    width: 30.6666%;
+    float: left;
+    margin: 20px 2% 20px 1%;
+  }
 }
