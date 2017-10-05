@@ -1,0 +1,136 @@
+/*div.background {
+  width: 100%;
+  min-height: 700px;
+  background-color: #e9e6c3;
+  padding: 20px;
+  color: black;
+}*/
+div.paper {
+  width: 420px;
+  height: 600px;
+  background-color: black;
+  margin: 20px auto;
+  padding: 10px;
+  color: black;
+
+}
+div.header {
+  width: 400px;
+  height: 150px;
+  background-color: white;
+  padding: 40px;
+}
+h2 {
+  width: 260px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+div.info1 {
+  width: 120px;
+  margin-left: 30px;
+  text-align: right;
+  float: left;
+  margin-right: 20px;
+}
+div.info2 {
+  width: 120px;
+  text-align: left;
+  float: left;
+
+}
+p{
+  font-size: 10px;
+  margin-top: -3px;
+}
+div.title {
+  width: 400px;
+  height: 20px;
+  background-color: black;
+  color: grey;
+  font-size: 10px;
+  padding: 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+div.body {
+  width: 400px;
+  height: 410px;
+  background-color: white;
+  padding-top: 30px;
+}
+div.column1 {
+  width: 150px;
+  height: 360px;
+  margin-left: 40px;
+  margin-right: 10px;
+  /*background-color: lightgrey;*/
+  float: left;
+  display: block;
+}
+div.column2 {
+  width: 150px;
+  height: 360px;
+  margin-left: 10px;
+  margin-right: 40px;
+  /*background-color: lightgrey;*/
+  float: left;
+}
+h3 {
+  font-size: 10px;
+  background-color: white;
+  margin-top: -4px;
+}
+div.profile, div.education, div.skills {
+  width: 100%;
+  border-top: 1px solid black;
+  margin-bottom: 20px;
+
+}
+div.profile > p, div.education > p {
+  text-align: justify;
+  background-color: white;
+}
+div.profile > h3 {
+  width: 55px;
+}
+div.education > h3 {
+  width: 75px;
+}
+div.skills > h3 {
+  width: 45px;
+}
+div.job > h3 {
+  margin-top: 7px;
+}
+div.job > p {
+  margin-top: -7px;
+  text-align: justify;
+}
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+.date {
+  color: grey;
+}
+div.education > .date {
+  margin-top: -7px;
+}
+@media (min-width: 600px) {
+  div.background {
+    /*margin: 20px 1% 20px 2%;*/
+    width: 40%;
+    float: left;
+  }
+  app-user {
+    width: 60%;
+    float: left;
+  }
+  .personalData {
+    width: 100%;
+  }
+}

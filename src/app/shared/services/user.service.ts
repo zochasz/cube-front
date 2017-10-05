@@ -52,12 +52,8 @@ export class UserService extends BaseApiService {
          description: job.description
        };
        this.user['experience'].push(work);
-       console.log('user = ', this.user)
 
-       const data = {
-         experience: this.user['experience']
-       }
-       return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
+       return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(this.user), BaseApiService.defaultOptions)
          .map(res => res.json())
          .catch(super.handleError);
      }
@@ -70,12 +66,11 @@ export class UserService extends BaseApiService {
           description: degree.description
         };
         this.user['education'].push(education);
-        console.log('user = ', this.user)
 
         const data = {
           education: this.user['education']
         }
-        return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
+        return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(this.user), BaseApiService.defaultOptions)
           .map(res => res.json())
           .catch(super.handleError);
       }

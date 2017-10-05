@@ -37,10 +37,26 @@
         <div class="jobAndSchool">
 
           <h3> UNIVERSITY EDUCATION </h3>
-          <p> {{ user?.education[0].name}} </p>
-          <!-- <button class="add" (click)="addJob()">+</button> -->
+          <div *ngFor="let education of user?.education">
+            <label for="name"> University Name </label>
+            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.name }}" name="name" [(ngModel)]="education.name"></textarea>
 
-          <form (ngSubmit)="onSubmitAddUniversity(addUniversityForm)" #addUniversityForm="ngForm">
+            <label for="title"> Title </label>
+            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.title }}" name="title" [(ngModel)]="education.title"></textarea>
+
+            <label for="from"> From </label>
+            <input (change)="editForm.ngSubmit.emit()" value="{{ education.from }}" type="date" name="from" [(ngModel)]="education.from">
+
+            <label for="to"> To </label>
+            <input (change)="editForm.ngSubmit.emit()" value="{{ education.to }}" type="date" name="to" [(ngModel)]="education.to">
+
+            <label for="description"> Description </label>
+            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.description }}" name="description" [(ngModel)]="education.description"></textarea>
+          </div>
+
+          <button class="add" (click)="addEducation()">+</button>
+
+          <form *ngIf="showEducation"(ngSubmit)="onSubmitAddUniversity(addUniversityForm)" #addUniversityForm="ngForm">
             <label for="name"> University Name </label>
             <textarea  name="name" [(ngModel)]="name"></textarea>
 
@@ -61,9 +77,9 @@
 
           <h3> PROFESIONAL EXPIRIENCE </h3>
           <p> {{ user?.experience[0].name}} </p>
-          <!-- <button class="add" (click)="addJob()">+</button> -->
+          <button class="add" (click)="addJob()">+</button>
 
-          <form (ngSubmit)="onSubmitAddJob(addJobForm)" #addJobForm="ngForm">
+          <form *ngIf="showJob" (ngSubmit)="onSubmitAddJob(addJobForm)" #addJobForm="ngForm">
             <label for="name"> Company Name </label>
             <textarea  name="name" [(ngModel)]="name"></textarea>
 

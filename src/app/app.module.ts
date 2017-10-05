@@ -28,12 +28,14 @@ import { LetterDetailComponent } from './components/letter/letter-detail/letter-
 import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
 import { PortfolioNewComponent } from './components/portfolio/portfolio-new/portfolio-new.component';
 import { PortfolioDetailComponent } from './components/portfolio/portfolio-detail/portfolio-detail.component';
+import { CvComponent } from './components/cv/cv.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashbordComponent},
+  { path: 'cv', component: CvComponent},
   { path: 'project/new', component: ProjectNewComponent },
   { path: 'project/:id', component: ProjectDetailComponent },
   { path: 'letter/new', component: LetterNewComponent },
@@ -59,7 +61,8 @@ const routes: Routes = [
     LetterDetailComponent,
     PortfolioListComponent,
     PortfolioNewComponent,
-    PortfolioDetailComponent
+    PortfolioDetailComponent,
+    CvComponent
   ],
   imports: [
     BrowserModule,
