@@ -1,3 +1,7 @@
+import { Education } from './education.model'
+import { Experience } from './experience.model'
+import { Skill } from './skill.model'
+
 export class User {
     _id:        string;
     email:      string;
@@ -10,43 +14,12 @@ export class User {
     linkedIn:   string;
     instagram:  string;
     pinterest:  string;
-    languages: [{
-      langName: string;
-      langLevel: {
-        type: string;
-        enum: ["Elementary", "Intermediate", "Advanced", "Mother Tongue"]
-      }
-    }];
-    hardskills: [{
-      hskillName: string;
-      hskillLevel: {
-        type: Number;
-        enum: [1, 2, 3, 4]
-      }
-    }];
-    softskills: [{
-      sskillName: string;
-      sskillLevel: {
-        type: Number;
-        enum: [1, 2, 3, 4]
-      }
-    }];
-    education: [{
-      schoolName: string;
-      timePeriod: string;
-      title: string
-    }];
-    complementaryEducation: [{
-      schoolName: string;
-      timePeriod: string;
-      title: string
-    }];
-    experience: [{
-      startDate: string;
-      endDate: string;
-      jobName: string;
-      jobDescription: string
-    }];
-    profile: string;
-    interests: Array<string>
+    profile:    string;
+    interests:              Array<string>;
+    education:              Array<Education>;
+    experience:             Array<Experience>;
+    complementaryEducation: Array<Education>;
+    languages:              Array<Skill>;
+    hardskills:             Array<Skill>;
+    softskills:             Array<Skill>;
 }

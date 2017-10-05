@@ -1,5 +1,5 @@
 <div class="edit">
-      <form (ngSubmit)="onSubmitEdit(editForm, user?._id)" #editForm="ngForm">
+      <form (ngSubmit)="onSubmitEdit(editForm)" #editForm="ngForm">
         <div class="personalData">
           <h3> PERSONAL INFORMATION </h3>
           <label for="firstName">First Name</label>
@@ -30,60 +30,61 @@
           <label for="profile">Profile</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.profile}}" name="profile" [(ngModel)]="profile"></textarea>
 
-          <label for="interests">Interests</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.interests}}" name="interests" [(ngModel)]="interests"></textarea>
+          <!-- <label for="interests">Interests</label>
+          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.interests}}" name="interests" [(ngModel)]="interests"></textarea> -->
         </div>
+
         <div class="jobAndSchool">
+
           <h3> UNIVERSITY EDUCATION </h3>
-          <label for="universityName">School</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.schoolName}}" name="schoolName" [(ngModel)]="schoolName"></textarea>
+          <p> {{ user?.education[0].name}} </p>
+          <!-- <button class="add" (click)="addJob()">+</button> -->
 
-          <label for="timePeriod">Time Period</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.timePeriod}}" name="timePeriod" [(ngModel)]="timePeriod"></textarea>
+          <form (ngSubmit)="onSubmitAddUniversity(addUniversityForm)" #addUniversityForm="ngForm">
+            <label for="name"> University Name </label>
+            <textarea  name="name" [(ngModel)]="name"></textarea>
 
-          <label for="title">Title</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.title}}" name="title" [(ngModel)]="title"></textarea>
+            <label for="title"> Title </label>
+            <textarea name="title" [(ngModel)]="title"></textarea>
 
+            <label for="from"> From </label>
+            <input type="date" name="from" [(ngModel)]="from">
 
-          <h3 class="marginTop"> PROFESIONAL EXPIRIENCE </h3>
-          <label for="jobName">Position</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.jobName}}" name="jobName" [(ngModel)]="jobName"></textarea>
+            <label for="to"> To </label>
+            <input type="date" name="to" [(ngModel)]="to">
 
-          <label for="jobDescription">Description</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.jobDescription}}" name="jobDescription" [(ngModel)]="jobDescription"></textarea>
+            <label for="description"> Description </label>
+            <textarea name="description" [(ngModel)]="description"></textarea>
 
-          <label for="startDate">From</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.startDate}}" name="startDate" [(ngModel)]="startDate"></textarea>
+            <button type="submit">Add</button>
+          </form>
 
-          <label for="endDate">To</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.endDate}}" name="endDate" [(ngModel)]="endDate"></textarea>
+          <h3> PROFESIONAL EXPIRIENCE </h3>
+          <p> {{ user?.experience[0].name}} </p>
+          <!-- <button class="add" (click)="addJob()">+</button> -->
+
+          <form (ngSubmit)="onSubmitAddJob(addJobForm)" #addJobForm="ngForm">
+            <label for="name"> Company Name </label>
+            <textarea  name="name" [(ngModel)]="name"></textarea>
+
+            <label for="title"> Job Title </label>
+            <textarea name="title" [(ngModel)]="title"></textarea>
+
+            <label for="from"> From </label>
+            <input type="date" name="from" [(ngModel)]="from">
+
+            <label for="to"> To </label>
+            <input type="date" name="to" [(ngModel)]="to">
+
+            <label for="description"> Job Description </label>
+            <textarea name="description" [(ngModel)]="description"></textarea>
+
+            <button type="submit">Add</button>
+          </form>
 
         </div>
         <div class="skills">
           <h3> COMPLEMENTARY EDUCATION </h3>
-          <label for="schoolName">School</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.schoolName}}" name="schoolName" [(ngModel)]="schoolName"></textarea>
-
-          <label for="timePeriod">Time Period</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.timePeriod}}" name="timePeriod" [(ngModel)]="timePeriod"></textarea>
-
-          <label for="courseTitle">Title</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.courseTitle}}" name="courseTitle" [(ngModel)]="courseTitle"></textarea>
-
-          <label for="langName">Language</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.langName}}" name="langName" [(ngModel)]="langName"></textarea>
-
-          <label for="langLevel">Level</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.langLevel}}" name="langLevel" [(ngModel)]="langLevel"></textarea>
-
-          <label for="hskillName">Hard Skills</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.hskillName}}" name="hskillName" [(ngModel)]="hskillName"></textarea>
-
-          <label for="hskillLevel">Level</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.hskillLevel}}" name="hskillLevel" [(ngModel)]="hskillLevel"></textarea>
-
-          <label for="sskillName">Soft Skills</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.sskillName}}" name="sskillName" [(ngModel)]="sskillName"></textarea>
 
         </div>
       </form>

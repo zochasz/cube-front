@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { ApiError } from '../models/api-error.model';
 import { User } from '../models/user.model';
+import { Experience } from '../models/experience.model';
 import { BaseApiService } from './base-api.service';
 
 import * as _ from 'lodash'
@@ -12,10 +13,11 @@ import * as _ from 'lodash'
 export class UserService extends BaseApiService {
   private static baseEndPoint = `${BaseApiService.baseApi}/user`;
   private user: Array<User> = [];
+  // private experience: Array<Experience> = [];
 
   constructor( private http: Http ) {
     super();
-    // this.user = JSON.parse(localStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   get(): Observable<User> {
@@ -41,4 +43,40 @@ export class UserService extends BaseApiService {
         .map(res => res.json())
         .catch(super.handleError);
     }
+    addJob(job): Observable<User> {
+       const work = {
+         name: job.name,
+         title: job.title,
+         from: job.from,
+         to: job.to,
+         description: job.description
+       };
+       this.user['experience'].push(work);
+       console.log('user = ', this.user)
+
+       const data = {
+         experience: this.user['experience']
+       }
+       return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
+         .map(res => res.json())
+         .catch(super.handleError);
+     }
+     addUniversity(degree): Observable<User> {
+        const education = {
+          name: degree.name,
+          title: degree.title,
+          from: degree.from,
+          to: degree.to,
+          description: degree.description
+        };
+        this.user['education'].push(education);
+        console.log('user = ', this.user)
+
+        const data = {
+          education: this.user['education']
+        }
+        return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
+          .map(res => res.json())
+          .catch(super.handleError);
+      }
 }

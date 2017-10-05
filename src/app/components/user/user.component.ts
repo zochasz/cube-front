@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from './../../shared/models/user.model';
@@ -36,6 +36,22 @@ export class UserComponent implements OnInit {
   onSubmitEdit(editForm) {
     this.userService.edit(editForm.value).subscribe(
       () => {},
+      (error) => {this.error = error}
+    )
+  }
+  onSubmitAddJob(addFormJob) {
+    this.userService.addJob(addFormJob.value).subscribe(
+      () => {
+        addFormJob.reset();
+      },
+      (error) => {this.error = error}
+    )
+  }
+  onSubmitAddUniversity(addUniversityForm) {
+    this.userService.addUniversity(addUniversityForm.value).subscribe(
+      () => {
+        addUniversityForm.reset();
+      },
       (error) => {this.error = error}
     )
   }
