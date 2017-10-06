@@ -22,3 +22,12 @@ button.save {
   padding: 5px;
   color: #2e2923;
 }
+button {
+  border-radius: 0%;
+  background-color: #e9e6c3;
+  width: 300px;
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+  color: #2e2923;
+}

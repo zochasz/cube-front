@@ -1,0 +1,97 @@
+div.background {
+  width: 100%;
+  overflow: scroll;
+}
+div.background::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+div.background::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
+div.paper {
+  width: 420px;
+  height: 600px;
+  background-color: black;
+  margin: 100px auto 20px auto;
+  padding: 10px;
+  color: black;
+
+}
+div.header {
+  width: 400px;
+  height: 150px;
+  background-color: white;
+  padding: 40px;
+  text-align: center;
+
+}
+h2 {
+  width: 260px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+p{
+  font-size: 10px;
+  margin-top: -3px;
+}
+div.title {
+  width: 400px;
+  height: 20px;
+  background-color: black;
+  color: grey;
+  font-size: 10px;
+  padding: 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+div.body {
+  width: 400px;
+  height: 410px;
+  background-color: white;
+  padding-top: 30px;
+}
+div.column1 {
+  width: 150px;
+  height: 360px;
+  margin-left: 40px;
+  margin-right: 10px;
+  /*background-color: lightgrey;*/
+  float: left;
+  display: block;
+}
+div.column2 {
+  width: 150px;
+  height: 360px;
+  margin-left: 10px;
+  margin-right: 40px;
+  /*background-color: lightgrey;*/
+  float: left;
+}
+h3 {
+  font-size: 10px;
+  background-color: white;
+  margin-top: -4px;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+.date {
+  color: grey;
+}
+@media (min-width: 600px) {
+  div.background {
+    margin-top: 100px;
+    width: 100%;
+    float: left;
+  }
+  div.paper {
+    margin: 20px auto;
+  }
+}

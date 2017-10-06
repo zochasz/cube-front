@@ -42,7 +42,11 @@ export class ProjectService extends BaseApiService {
        externalEngineer: project.externalEngineer,
        client: project.client,
        description: project.description,
-       location: project.location
+       location: project.location,
+       image1: project.image1,
+       image2: project.image2,
+       image3: project.image3,
+       image4: project.image4
      };
      return this.http.post(`${ProjectService.baseEndPoint}`, JSON.stringify(data), BaseApiService.defaultOptions)
        .map(res => res.json())
@@ -58,7 +62,11 @@ export class ProjectService extends BaseApiService {
         externalEngineer: project.externalEngineer,
         client: project.client,
         description: project.description,
-        location: project.location
+        location: project.location,
+        image1: project.image1,
+        image2: project.image2,
+        image3: project.image3,
+        image4: project.image4
       };
       return this.http.put(`${ProjectService.baseEndPoint}/${id}`, JSON.stringify(data), BaseApiService.defaultOptions)
         .map(res => res.json())

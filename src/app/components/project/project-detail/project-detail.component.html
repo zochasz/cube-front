@@ -1,4 +1,5 @@
-<div class="edit">
+<app-project></app-project>
+<div class="edit" (onUpdated)="onUserUpdated($event)">
       <form (ngSubmit)="onSubmitEdit(editForm, project?._id )" #editForm="ngForm">
           <label for="title">Title</label>
           <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{project?.title}}" type="text" name="title" [(ngModel)]="title"></textarea>
@@ -26,5 +27,17 @@
 
           <label for="externalEngineer">External Collabolator</label>
           <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{ project?.externalEngineer }}" type="text" name="externalEngineer" [(ngModel)]="externalEngineer"></textarea>
+
+          <label for="image1">Photo 1</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.image1 }}" type="text" name="image1" [(ngModel)]="image1">
+
+          <label for="image2">Photo 2</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.image2 }}" type="text" name="image2" [(ngModel)]="image2">
+
+          <label for="image3">Photo 3</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.image3 }}" type="text" name="image3" [(ngModel)]="image3">
+
+          <label for="image4">Photo 4</label>
+          <input (change)="editForm.ngSubmit.emit()" value="{{ project?.image4 }}" type="text" name="image4" [(ngModel)]="image4">
       </form>
 </div>

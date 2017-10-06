@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { FileSelectDirective } from "ng2-file-upload";
 
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
@@ -29,6 +29,7 @@ import { PortfolioListComponent } from './components/portfolio/portfolio-list/po
 import { PortfolioNewComponent } from './components/portfolio/portfolio-new/portfolio-new.component';
 import { PortfolioDetailComponent } from './components/portfolio/portfolio-detail/portfolio-detail.component';
 import { CvComponent } from './components/cv/cv.component';
+import { ProjectComponent } from './components/project/project/project.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -62,15 +63,15 @@ const routes: Routes = [
     PortfolioListComponent,
     PortfolioNewComponent,
     PortfolioDetailComponent,
-    CvComponent
+    CvComponent,
+    FileSelectDirective,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AuthService,

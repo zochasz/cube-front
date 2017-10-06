@@ -30,12 +30,16 @@ textarea.height2 {
 textarea.height7 {
   height: 140px;
 }
-/*button.edit {
-  border-radius: 0%;
-  background-color: #e9e6c3;
-  width: 300px;
-  border: none;
-  font-size: 16px;
-  padding: 5px;
-  color: #2e2923;
-}*/
+@media (min-width: 600px) {
+  app-project {
+    /*margin: 20px 1% 20px 2%;*/
+    width: 70%;
+    float: left;
+  }
+  .edit {
+    width: 30%;
+    float: left;
+    max-height: 700px;
+    overflow: scroll;
+  }
+}

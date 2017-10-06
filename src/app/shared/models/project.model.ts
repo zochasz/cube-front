@@ -9,6 +9,10 @@ export class Project {
     externalEngineer: [string];
     client: string;
     description: string;
+    image1: string;
+    image2: string;
+    image3: string;
+    image4: string;
     location: string;
     createdAd: Date;
     updatedAt: Date;
