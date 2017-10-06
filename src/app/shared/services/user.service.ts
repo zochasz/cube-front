@@ -12,7 +12,7 @@ import * as _ from 'lodash'
 @Injectable()
 export class UserService extends BaseApiService {
   private static baseEndPoint = `${BaseApiService.baseApi}/user`;
-  private user: Array<User> = [];
+  private user: User;
   // private experience: Array<Experience> = [];
 
   constructor( private http: Http ) {

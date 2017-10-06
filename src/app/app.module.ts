@@ -30,6 +30,7 @@ import { PortfolioNewComponent } from './components/portfolio/portfolio-new/port
 import { PortfolioDetailComponent } from './components/portfolio/portfolio-detail/portfolio-detail.component';
 import { CvComponent } from './components/cv/cv.component';
 import { ProjectComponent } from './components/project/project/project.component';
+import { LetterComponent } from './components/letter/letter/letter.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -65,7 +66,8 @@ const routes: Routes = [
     PortfolioDetailComponent,
     CvComponent,
     FileSelectDirective,
-    ProjectComponent
+    ProjectComponent,
+    LetterComponent
   ],
   imports: [
     BrowserModule,

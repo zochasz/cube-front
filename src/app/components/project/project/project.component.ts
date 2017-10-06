@@ -15,9 +15,7 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
-    // private router: Router,
     private routes: ActivatedRoute
-
    ) { }
 
   ngOnInit() {

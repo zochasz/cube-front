@@ -1,0 +1,24 @@
+<div class="background">
+  <div class="paper">
+    <div class="header">
+      <h2> {{ user?.firstName }} {{ user?.lastName }}</h2>
+      <div class="info1">
+        <p> {{user?.email}} </p>
+        <p> {{user?.url}} </p>
+      </div>
+      <div class="info2">
+        <p> {{user?.phoneNo}} </p>
+        <p> {{user?.address}} </p>
+      </div>
+    </div>
+
+    <div class="title"> {{ user?.title }} </div>
+
+    <div class="body">
+      <p> Dear {{ letter?.to }} </p>
+      <p>  {{ letter?.text }} </p>
+      <p> Sincerely, </p>
+      <p> {{ letter?.from }} </p>
+    </div>
+    </div>
+  </div>

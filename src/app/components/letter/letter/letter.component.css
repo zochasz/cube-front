@@ -1,0 +1,91 @@
+div.background {
+  width: 100%;
+  overflow: scroll;
+}
+div.background::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+div.background::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
+div.paper {
+  width: 420px;
+  height: 600px;
+  background-color: black;
+  margin: 100px auto 20px auto;
+  padding: 10px;
+  color: black;
+
+}
+div.header {
+  width: 400px;
+  height: 150px;
+  background-color: white;
+  padding: 40px;
+}
+h2 {
+  width: 260px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+div.info1 {
+  width: 120px;
+  margin-left: 30px;
+  text-align: right;
+  float: left;
+  margin-right: 20px;
+}
+div.info2 {
+  width: 120px;
+  text-align: left;
+  float: left;
+
+}
+p{
+  font-size: 10px;
+  margin-top: -3px;
+}
+div.title {
+  width: 400px;
+  height: 20px;
+  background-color: black;
+  color: grey;
+  font-size: 10px;
+  padding: 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+div.body {
+  width: 400px;
+  height: 410px;
+  background-color: white;
+  padding: 30px;
+}
+
+app-letter {
+  max-height: 700px;
+  overflow: scroll;
+}
+app-letter::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+app-letter::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
+@media (min-width: 600px) {
+  div.background {
+    width: 100%;
+    float: left;
+  }
+  div.paper {
+    margin: 20px auto;
+  }
+  app-letter {
+    width: 30%;
+    float: left;
+  }
+}
