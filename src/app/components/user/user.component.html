@@ -8,9 +8,11 @@
           <label for="lastName">Last Name</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.lastName}}" name="lastName" [(ngModel)]="lastName"></textarea>
 
+          <label for="title">Title</label>
+          <textarea class="height2"(change)="editForm.ngSubmit.emit()" value="{{user?.title}}" name="title" [(ngModel)]="title"></textarea>
+
           <label for="email">Email</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.email}}" name="email" [(ngModel)]="email"></textarea>
-
 
           <label for="phoneNo">Phone No.</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.phoneNo}}" name="phoneNo" [(ngModel)]="phoneNo"></textarea>
@@ -28,7 +30,7 @@
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.pinterest}}" name="pinterest" [(ngModel)]="pinterest"></textarea>
 
           <label for="profile">Profile</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.profile}}" name="profile" [(ngModel)]="profile"></textarea>
+          <textarea class="height7" (change)="editForm.ngSubmit.emit()" value="{{user?.profile}}" name="profile" [(ngModel)]="profile"></textarea>
 
           <!-- <label for="interests">Interests</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.interests}}" name="interests" [(ngModel)]="interests"></textarea> -->
@@ -37,21 +39,14 @@
         <div class="jobAndSchool">
 
           <h3> UNIVERSITY EDUCATION </h3>
-          <div *ngFor="let education of user?.education">
-            <label for="name"> University Name </label>
-            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.name }}" name="name" [(ngModel)]="education.name"></textarea>
+          <div *ngFor="let education of user?.education; let i = index">
+            <button (click)="deleteEducation(i)">x</button>
 
-            <label for="title"> Title </label>
-            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.title }}" name="title" [(ngModel)]="education.title"></textarea>
-
-            <label for="from"> From </label>
-            <input (change)="editForm.ngSubmit.emit()" value="{{ education.from }}" type="date" name="from" [(ngModel)]="education.from">
-
-            <label for="to"> To </label>
-            <input (change)="editForm.ngSubmit.emit()" value="{{ education.to }}" type="date" name="to" [(ngModel)]="education.to">
-
-            <label for="description"> Description </label>
-            <textarea (change)="editForm.ngSubmit.emit()" value="{{ education.description }}" name="description" [(ngModel)]="education.description"></textarea>
+            <p> {{ education.name }} </p>
+            <p> {{ education.title }} </p>
+            <p> {{ education.from | date:'yyyy-MM-dd' }} </p>
+            <p> {{ education.to | date:'yyyy-MM-dd' }} </p>
+            <p> {{ education.description }} </p>
           </div>
 
           <button class="add" (click)="addEducation()">+</button>
@@ -75,8 +70,15 @@
             <button type="submit">Add</button>
           </form>
 
-          <h3> PROFESIONAL EXPIRIENCE </h3>
-          <p> {{ user?.experience[0].name}} </p>
+          <h3> PROFESIONAL EXPERIENCE </h3>
+          <div *ngFor="let experience of user?.experience; let i = index">
+            <button (click)="deleteJob(i)">x</button>
+            <p> {{ experience.name }} </p>
+            <p> {{ experience.title }} </p>
+            <p> {{ experience.from | date:'yyyy-MM-dd' }} </p>
+            <p> {{ experience.to | date:'yyyy-MM-dd' }} </p>
+            <p> {{ experience.description }} </p>
+          </div>
           <button class="add" (click)="addJob()">+</button>
 
           <form *ngIf="showJob" (ngSubmit)="onSubmitAddJob(addJobForm)" #addJobForm="ngForm">

@@ -2,79 +2,53 @@
   display: block;
   float: none;
 }
-h3 {
-  text-align: center;
-  margin: 20px auto;
+.edit {
+  padding-left: 30px;
 }
-/*.personalData, .skills, .jobAndSchool {
-  margin: 20px auto;
-  width: 96%;
-  min-height: 100px;
-  border: 1px solid #e9e6c3;
-  padding: 5px;
-  height: 680px;
-}*/
+div.background::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+div.background::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
+
 label {
   display: block;
-  width: 30%;
-  height: 50px;
-  margin: 5px 0px 5px 2%;
-  float: left;
-  padding: 10px;
-  border: 1px solid grey;
+  margin: 5px 0;
 }
-textarea, input {
+input, textarea {
+  width: 300px;
+  height: 20px;
+  background-color: #2e2923;
   display: block;
-  width: 66%;
-  height: 50px;
-  margin: 5px 2% 5px 0px;
-  float: left;
-  background-color: #302d28;
+  margin-bottom: 20px;
   border: none;
-  border: 1px solid grey;
   font-size: 16px;
   color: #e9e6c3;
   text-indent: 20px;
-  text-align: center;
   word-wrap: normal;
-  padding-top: 10px;
 }
-textarea:focus {
+input:focus, textarea:focus {
   border: none;
+}
+textarea::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+textarea::-webkit-scrollbar-corner{
+  background-color: #2e2923;
 }
 textarea {
   resize: none;
 }
-/*.marginTop{
-  margin-top: 222px;
-}*/
-button {
-  border-radius: 0;
-  border-width: 0;
-  width: 96%;
-  margin: 5px 2%;
-  background-color: #e9e6c3;
+textarea.height2 {
+  height: 40px;
 }
-button.add {
-  background-color: #302d28;
+textarea.height7 {
+  height: 140px;
+}
+button {
+  background-color: #2e2923;
   color: #e9e6c3;
   font-size: 20px;
-  text-align: right;
-}
-@media (min-width: 600px) {
-  .personalData {
-    width: 30.6666%;
-    float: left;
-    margin: 20px 1% 20px 2%;
-  }
-  .jobAndSchool {
-    width: 30.6666%;
-    float: left;
-    margin: 20px 1%;
-  }
-  .skills {
-    width: 30.6666%;
-    float: left;
-    margin: 20px 2% 20px 1%;
-  }
+  border: none;
 }

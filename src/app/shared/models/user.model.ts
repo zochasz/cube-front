@@ -8,6 +8,7 @@ export class User {
     password:   string;
     firstName:  string;
     lastName:   string;
+    title:      string;
     url:        string;
     phoneNo:    string;
     address:    string;

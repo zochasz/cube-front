@@ -1,15 +1,18 @@
-/*div.background {
+div.background {
   width: 100%;
-  min-height: 700px;
-  background-color: #e9e6c3;
-  padding: 20px;
-  color: black;
-}*/
+  overflow: scroll;
+}
+div.background::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+div.background::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
 div.paper {
   width: 420px;
   height: 600px;
   background-color: black;
-  margin: 20px auto;
+  margin: 100px auto 20px auto;
   padding: 10px;
   color: black;
 
@@ -114,20 +117,46 @@ img {
   width: 100%;
   border-radius: 5px;
 }
+span {
+  margin-left: 5px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid black;
+  float: right;
+}
+
+span.full {
+  background-color: grey;
+}
 .date {
   color: grey;
 }
 div.education > .date {
   margin-top: -7px;
 }
+app-user {
+  max-height: 700px;
+  overflow: scroll;
+}
+app-user::-webkit-scrollbar {
+    background-color: #2e2923;
+}
+app-user::-webkit-scrollbar-corner{
+  background-color: #2e2923;
+}
 @media (min-width: 600px) {
   div.background {
     /*margin: 20px 1% 20px 2%;*/
-    width: 40%;
+    width: 70%;
     float: left;
   }
+  div.paper {
+    margin: 20px auto;
+  }
   app-user {
-    width: 60%;
+    width: 30%;
+    /*max-height: 900px;*/
     float: left;
   }
   .personalData {

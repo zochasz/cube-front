@@ -1,48 +1,87 @@
 <div class="background">
   <div class="paper">
     <div class="header">
-      <h2> {{user?.firstName}} </h2>
+      <h2> {{user?.firstName}} {{user?.lastName}} </h2>
       <div class="info1">
-        <p> zahahadid@gmail.com </p>
-        <p> www.zahahadid@com </p>
+        <p> {{user?.email}} </p>
+        <p> {{user?.url}} </p>
       </div>
       <div class="info2">
-        <p> 123-456-7890 </p>
-        <p> 221B Baker Street London </p>
+        <p> {{user?.phoneNo}} </p>
+        <p> {{user?.address}} </p>
       </div>
     </div>
-    <div class="title"> ARQUITECT - URBANIST - DESIGNER </div>
+    <div class="title"> {{ user?.title}} </div>
     <div class="body">
       <div class="column1">
         <div class="profile">
           <h3><strong> PROFILE </strong></h3>
-          <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Etiam tempus aliquet purus eget consequat.
-            Morbi mauris orci, facilisis posuere tortor et,
-            lacinia condimentum tortor. Maecenas nec accumsan sem.
-            Proin luctus accumsan enim non tincidunt.
-          </p>
+          <p> {{user?.profile}} </p>
         </div>
         <div class="education">
           <h3><strong> EDUCATION </strong></h3>
-          <p> Architectural Association School of Architecture. </p>
-          <p class="date">  1972 - 1977 </p>
+          <p> {{ user?.education[0].name }} </p>
+          <p class="date">  {{ user?.education[0].from.slice(0, 4) }} - {{ user?.education[0].to.slice(0, 4) }} </p>
           <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Etiam tempus aliquet purus eget consequat.
+            {{ user?.education[0].description }}
           </p>
         </div>
         <div class="skills">
           <h3><strong> SKILLS </strong></h3>
-          <p> autoCad </p>
-          <p> autoCad </p>
-          <p> autoCad </p>
-          <p> autoCad </p>
-          <p> autoCad </p>
-
+          <p> autoCad
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Revit
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+          </p>
+          <p> 3D Max Studio
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="empty"> </span>
+            <span class="emtpy"> </span>
+          </p>
+          <p> Rhino3D
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Photoshop
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Ilustrator
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Presto
+            <span class="full"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Cype
+            <span class="full"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+            <span class="empty"> </span>
+          </p>
+          <p> Microsoft Office
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+            <span class="full"> </span>
+          </p>
         </div>
       </div>
       <div class="column2">
@@ -50,23 +89,15 @@
         <div class="job">
           <h3><strong> PROFESIONAL EXPERIENCE </strong></h3>
 <br>
-          <p> Metropolitan Architecture, Rotterdam</p>
-          <p> Architect </p>
-          <p class="date">  1977 - 1980 </p>
-          <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Etiam tempus aliquet purus eget consequat.
-          </p>
+          <p> {{ user?.experience[0].name }} </p>
+          <p>  {{ user?.experience[0].title }} </p>
+          <p class="date"> {{ user?.experience[0].from.slice(0, 4) }} - {{ user?.experience[0].to.slice(0, 4) }} </p>
+          <p> {{ user?.experience[0].description }} </p>
 <br>
-          <p> Zaha Hadid Architects, London </p>
-          <p> Founder </p>
-          <p class="date">  1980 - 2016 </p>
-          <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Etiam tempus aliquet purus eget consequat.
-          </p>
+          <p> {{ user?.experience[1].name }} </p>
+          <p>  {{ user?.experience[1].title }} </p>
+          <p class="date">  {{ user?.experience[1].from.slice(0, 4) }} - {{ user?.experience[1].to.slice(0, 4) }} </p>
+          <p> {{ user?.experience[1].description }} </p>
         </div>
       </div>
     </div>

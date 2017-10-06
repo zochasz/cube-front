@@ -46,7 +46,8 @@ export class UserComponent implements OnInit, OnChanges {
   }
 
   onSubmitEdit(editForm) {
-    this.userService.edit(editForm.value).subscribe(
+    this.user = editForm.value
+    this.userService.edit(this.user).subscribe(
       (user) => {
         this.user = user;
         this.emitUser();
@@ -55,7 +56,8 @@ export class UserComponent implements OnInit, OnChanges {
     )
   }
   onSubmitAddJob(addFormJob) {
-    this.userService.addJob(addFormJob.value).subscribe(
+    this.user['experience'].push(addFormJob.value);
+    this.userService.edit(this.user).subscribe(
       () => {
         this.showJob = false;
         addFormJob.reset();
@@ -64,7 +66,8 @@ export class UserComponent implements OnInit, OnChanges {
     )
   }
   onSubmitAddUniversity(addUniversityForm) {
-    this.userService.addUniversity(addUniversityForm.value).subscribe(
+    this.user['education'].push(addUniversityForm.value);
+    this.userService.edit(this.user).subscribe(
       () => {
         this.showEducation = false;
         addUniversityForm.reset();
@@ -78,16 +81,18 @@ export class UserComponent implements OnInit, OnChanges {
   addEducation() {
     this.showEducation = true;
   }
-  deleteEducation(id: string) {
-    // this.userService.remove(id)
-    // .subscribe((removed) => {
-    //   if (removed) {
-    //     this.user['experience'] = this.user.filter(user => user._id !== id)
-    //   } else {
-    //     console.log ("error: User not found")
-    //   }
-    // },
-    // (err) => console.log(err)
-    // )
+  deleteEducation(i) {
+    this.user.education.splice(i, 1);
+    this.userService.edit(this.user).subscribe(
+      () => {},
+      (error) => {this.error = error}
+    )
+  }
+  deleteJob(i) {
+    this.user.experience.splice(i, 1);
+    this.userService.edit(this.user).subscribe(
+      () => {},
+      (error) => {this.error = error}
+    )
   }
 }
