@@ -39,9 +39,11 @@ export class LetterPreviewComponent implements OnInit {
     this.userService.get().subscribe(
       user => {
         this.user = user;
-        // this.emitUser();
       },
       error => console.log(error)
     );
+  }
+  onChangeLetter(letter: Letter) {
+    this.letter = letter;
   }
 }

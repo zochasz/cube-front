@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Letter } from './../../../shared/models/letter.model';
@@ -12,6 +12,8 @@ import * as _ from 'lodash';
 })
 export class LetterDetailComponent implements OnInit {
   @Input() letter: Letter;
+  @Output() onChange: EventEmitter<Letter> = new EventEmitter<Letter>();
+
   error: string;
 
   constructor(
@@ -20,12 +22,17 @@ export class LetterDetailComponent implements OnInit {
     private routes: ActivatedRoute
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.letter = new Letter;
+  }
 
 
   onSubmitEdit(editForm, id) {
     this.letterService.edit(editForm.value, id).subscribe(
-      () => {},
+      (letter) => {
+        this.letter = letter;
+        this.onChange.emit(this.letter);
+      },
       (error) => {this.error = error}
     )
   }

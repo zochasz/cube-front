@@ -22,7 +22,7 @@ export class ProjectPreviewComponent implements OnInit {
     this.routes.params.subscribe(
       params => this.fetchProject(params['id']));
   }
-  
+
   fetchProject(id: string){
     this.projectService.get(id).subscribe(
       (project) => {
@@ -30,5 +30,8 @@ export class ProjectPreviewComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+  onChangeProject(project: Project) {
+    this.project = project;
   }
 }

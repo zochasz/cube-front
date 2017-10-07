@@ -20,14 +20,19 @@ export class UserService extends BaseApiService {
 
   get(): Observable<User> {
       return this.http.get(`${UserService.baseEndPoint}`, BaseApiService.defaultOptions)
-        .map(res => res.json())
+        .map(res => {
+          this.user = res.json();
+          return this.user;
+        })
         .catch(super.handleError);
   }
 
    edit(user): Observable<User> {
-      this.user = user;
-      return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(this.user), BaseApiService.defaultOptions)
-        .map(res => res.json())
+      return this.http.put(`${UserService.baseEndPoint}`, JSON.stringify(user), BaseApiService.defaultOptions)
+        .map(res => {
+          this.user = res.json();
+          return this.user;
+        })
         .catch(super.handleError);
     }
 }

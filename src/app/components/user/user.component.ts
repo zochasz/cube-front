@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from './../../shared/models/user.model';
@@ -12,8 +12,9 @@ import * as _ from 'lodash';
 })
 export class UserComponent implements OnInit {
   @Input() user: User;
+  @Output() onChange: EventEmitter<User> = new EventEmitter<User>();
   error: string;
-  
+
   private showEducation = false;
   private showJob = false;
 
@@ -23,37 +24,26 @@ export class UserComponent implements OnInit {
     private routes: ActivatedRoute
   ){}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = new User();
+  }
 
   onSubmitEdit(editForm) {
-    this.user = editForm.value
-    this.userService.edit(this.user).subscribe(
-      (user) => {
-        this.user = user;
-        // this.emitUser();
-      },
-      (error) => {this.error = error}
-    )
+    this.syncUser();
   }
+
   onSubmitAddJob(addFormJob) {
     this.user['experience'].push(addFormJob.value);
-    this.userService.edit(this.user).subscribe(
-      () => {
-        this.showJob = false;
-        addFormJob.reset();
-      },
-      (error) => {this.error = error}
-    )
+    this.showJob = false;
+    addFormJob.reset();
+    this.syncUser();
   }
+
   onSubmitAddUniversity(addUniversityForm) {
     this.user['education'].push(addUniversityForm.value);
-    this.userService.edit(this.user).subscribe(
-      () => {
-        this.showEducation = false;
-        addUniversityForm.reset();
-      },
-      (error) => {this.error = error}
-    )
+    this.showEducation = false;
+    addUniversityForm.reset();
+    this.syncUser();
   }
   addJob() {
     this.showJob = true;
@@ -63,15 +53,19 @@ export class UserComponent implements OnInit {
   }
   deleteEducation(i) {
     this.user.education.splice(i, 1);
-    this.userService.edit(this.user).subscribe(
-      () => {},
-      (error) => {this.error = error}
-    )
+    this.syncUser();
   }
   deleteJob(i) {
     this.user.experience.splice(i, 1);
+    this.syncUser();
+  }
+
+  syncUser() {
     this.userService.edit(this.user).subscribe(
-      () => {},
+      (user) => {
+        this.user = user;
+        this.onChange.emit(this.user);
+      },
       (error) => {this.error = error}
     )
   }

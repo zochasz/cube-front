@@ -3,34 +3,34 @@
         <div class="personalData">
           <h3> PERSONAL INFORMATION </h3>
           <label for="firstName">First Name</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.firstName}}" name="firstName" [(ngModel)]="firstName"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="firstName" [(ngModel)]="user.firstName"></textarea>
 
           <label for="lastName">Last Name</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.lastName}}" name="lastName" [(ngModel)]="lastName"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="lastName" [(ngModel)]="user.lastName"></textarea>
 
           <label for="title">Title</label>
-          <textarea class="height2"(change)="editForm.ngSubmit.emit()" value="{{user?.title}}" name="title" [(ngModel)]="title"></textarea>
+          <textarea class="height2"(change)="editForm.ngSubmit.emit()" name="title" [(ngModel)]="user.title"></textarea>
 
           <label for="email">Email</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.email}}" name="email" [(ngModel)]="email"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="email" [(ngModel)]="user.email"></textarea>
 
           <label for="phoneNo">Phone No.</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.phoneNo}}" name="phoneNo" [(ngModel)]="phoneNo"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="phoneNo" [(ngModel)]="user.phoneNo"></textarea>
 
           <label for="address">Address</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.address}}" name="address" [(ngModel)]="address"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="address" [(ngModel)]="user.address"></textarea>
 
           <label for="url">Web</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.url}}" name="url" [(ngModel)]="url"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="url" [(ngModel)]="user.url"></textarea>
 
           <label for="linkedIn">LinkedIn</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.linkedIn}}" name="linkedIn" [(ngModel)]="linkedIn"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="linkedIn" [(ngModel)]="user.linkedIn"></textarea>
 
           <label for="pinterest">Pinterest</label>
-          <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.pinterest}}" name="pinterest" [(ngModel)]="pinterest"></textarea>
+          <textarea (change)="editForm.ngSubmit.emit()" name="pinterest" [(ngModel)]="user.pinterest"></textarea>
 
           <label for="profile">Profile</label>
-          <textarea class="height7" (change)="editForm.ngSubmit.emit()" value="{{user?.profile}}" name="profile" [(ngModel)]="profile"></textarea>
+          <textarea class="height7" (change)="editForm.ngSubmit.emit()"  name="profile" [(ngModel)]="user.profile"></textarea>
 
           <!-- <label for="interests">Interests</label>
           <textarea (change)="editForm.ngSubmit.emit()" value="{{user?.interests}}" name="interests" [(ngModel)]="interests"></textarea> -->

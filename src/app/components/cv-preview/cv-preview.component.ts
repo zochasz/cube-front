@@ -20,9 +20,12 @@ export class CvPreviewComponent implements OnInit {
     this.userService.get().subscribe(
       user => {
         this.user = user;
-        // this.emitUser();
       },
       error => console.log(error)
     );
+  }
+
+  onChangeUser(user: User) {
+    this.user = user;
   }
 }

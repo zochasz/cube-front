@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Project } from './../../../shared/models/project.model';
@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 })
 export class ProjectDetailComponent implements OnInit {
   @Input() project: Project;
+  @Output() onChange: EventEmitter<Project> = new EventEmitter<Project>();
   error: string;
 
   constructor(
@@ -21,13 +22,14 @@ export class ProjectDetailComponent implements OnInit {
   ){}
 
   ngOnInit() {
-
+    this.project = new Project;
   }
   
   onSubmitEdit(editForm, id) {
     this.projectService.edit(editForm.value, id).subscribe(
       (project) => {
         this.project = project;
+        this.onChange.emit(this.project);
       },
       (error) => {this.error = error}
     )
