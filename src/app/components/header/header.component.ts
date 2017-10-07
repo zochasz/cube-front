@@ -15,13 +15,18 @@ export class HeaderComponent implements OnInit {
 
   constructor( private authService: AuthService, private router: Router ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+  }
 
   register() { this.router.navigate(['/register']); }
   login() { this.router.navigate(['/login']); }
   logout() {
     this.authService.logout().subscribe(
-      (ok) => { this.router.navigate(['/']); },
+      (ok) => {
+        this.router.navigate(['/']);
+        location.reload();
+      },
       (error) => { this.error = error; },
     );
   }

@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
         (user) => {
           loginForm.reset();
           this.router.navigate(['/dashboard']);
+          location.reload();
         },
         (error) => { this.error = error; }
       );

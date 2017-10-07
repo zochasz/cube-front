@@ -13,7 +13,6 @@ import * as _ from 'lodash'
 export class UserService extends BaseApiService {
   private static baseEndPoint = `${BaseApiService.baseApi}/user`;
   private user: User;
-  // private experience: Array<Experience> = [];
 
   constructor( private http: Http ) {
     super();

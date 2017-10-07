@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Project } from './../../../shared/models/project.model';
@@ -11,7 +11,7 @@ import * as _ from 'lodash';
   styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
-  project: Project;
+  @Input() project: Project;
   error: string;
 
   constructor(
@@ -21,19 +21,9 @@ export class ProjectDetailComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    this.routes.params.subscribe(
-      params => this.fetchProject(params['id']));
-  }
 
-  fetchProject(id: string){
-    this.projectService.get(id).subscribe(
-      (project) => {
-        this.project = project
-      },
-      error => console.log(error)
-    );
   }
-
+  
   onSubmitEdit(editForm, id) {
     this.projectService.edit(editForm.value, id).subscribe(
       (project) => {

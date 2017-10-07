@@ -1,0 +1,10 @@
+@media (min-width: 600px) {
+  app-project {
+    width: 70%;
+    float: left;
+  }
+  app-project-detail  {
+    width: 30%;
+    float: left;
+  }
+}

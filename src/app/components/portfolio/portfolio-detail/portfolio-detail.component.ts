@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Portfolio } from './../../../shared/models/portfolio.model';
@@ -8,8 +8,7 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-portfolio-detail',
   templateUrl: './portfolio-detail.component.html',
-  styleUrls: ['./portfolio-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./portfolio-detail.component.css']
 })
 export class PortfolioDetailComponent implements OnInit {
   portfolio: Portfolio;

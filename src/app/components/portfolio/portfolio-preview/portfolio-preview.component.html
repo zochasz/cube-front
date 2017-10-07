@@ -1,0 +1,9 @@
+<app-cv [user]="portfolio?.author"></app-cv>
+
+<div *ngFor="let letter of portfolio?.letters">
+  <app-letter [user]="portfolio.author" [letter]="letter"></app-letter>
+</div>
+
+<div *ngFor="let project of portfolio?.projects">
+  <app-project [project]="project"></app-project>
+</div>

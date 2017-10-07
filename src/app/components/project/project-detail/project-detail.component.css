@@ -31,13 +31,8 @@ textarea.height7 {
   height: 140px;
 }
 @media (min-width: 600px) {
-  app-project {
-    /*margin: 20px 1% 20px 2%;*/
-    width: 70%;
-    float: left;
-  }
   .edit {
-    width: 30%;
+    width: 100%;
     float: left;
     max-height: 700px;
     overflow: scroll;

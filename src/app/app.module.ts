@@ -12,6 +12,8 @@ import { ProjectService } from './shared/services/project.service';
 import { LetterService } from './shared/services/letter.service';
 import { PortfolioService } from './shared/services/portfolio.service';
 
+import { IsAuthenticatedGuard } from './components/guards/is-authenticated.guard';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,19 +33,31 @@ import { PortfolioDetailComponent } from './components/portfolio/portfolio-detai
 import { CvComponent } from './components/cv/cv.component';
 import { ProjectComponent } from './components/project/project/project.component';
 import { LetterComponent } from './components/letter/letter/letter.component';
+import { CvPreviewComponent } from './components/cv-preview/cv-preview.component';
+import { LetterPreviewComponent } from './components/letter/letter-preview/letter-preview.component';
+import { ProjectPreviewComponent } from './components/project/project-preview/project-preview.component';
+import { PortfolioPreviewComponent } from './components/portfolio/portfolio-preview/portfolio-preview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashbordComponent},
-  { path: 'cv', component: CvComponent},
-  { path: 'project/new', component: ProjectNewComponent },
-  { path: 'project/:id', component: ProjectDetailComponent },
-  { path: 'letter/new', component: LetterNewComponent },
-  { path: 'letter/:id', component: LetterDetailComponent },
-  { path: 'portfolio/new', component: PortfolioNewComponent },
-  { path: 'portfolio/:id', component: PortfolioDetailComponent }
+  { path: 'dashboard', component: DashbordComponent,
+    canActivate: [IsAuthenticatedGuard]
+  },
+  { path: 'cv', component: CvPreviewComponent},
+  { path: 'project/new', component: ProjectNewComponent,
+    canActivate: [IsAuthenticatedGuard]
+  },
+  { path: 'project/:id', component: ProjectPreviewComponent },
+  { path: 'letter/new', component: LetterNewComponent,
+    canActivate: [IsAuthenticatedGuard]
+  },
+  { path: 'letter/:id', component: LetterPreviewComponent },
+  { path: 'portfolio/new', component: PortfolioNewComponent,
+    canActivate: [IsAuthenticatedGuard]
+  },
+  { path: 'portfolio/:id', component: PortfolioPreviewComponent },
 ];
 
 @NgModule({
@@ -67,7 +81,11 @@ const routes: Routes = [
     CvComponent,
     FileSelectDirective,
     ProjectComponent,
-    LetterComponent
+    LetterComponent,
+    CvPreviewComponent,
+    LetterPreviewComponent,
+    ProjectPreviewComponent,
+    PortfolioPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +98,8 @@ const routes: Routes = [
     UserService,
     ProjectService,
     LetterService,
-    PortfolioService
+    PortfolioService,
+    IsAuthenticatedGuard
    ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Letter } from './../../../shared/models/letter.model';
@@ -8,11 +8,10 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-letter-detail',
   templateUrl: './letter-detail.component.html',
-  styleUrls: ['./letter-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./letter-detail.component.css']
 })
 export class LetterDetailComponent implements OnInit {
-  letter: Letter;
+  @Input() letter: Letter;
   error: string;
 
   constructor(
@@ -21,16 +20,9 @@ export class LetterDetailComponent implements OnInit {
     private routes: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.routes.params.subscribe(
-    params => this.fetchLetter(params['id']));
-  }
-  fetchLetter(id: string){
-    this.letterService.get(id).subscribe(
-      letter => this.letter = letter,
-      error => console.log(error)
-    );
-  }
+  ngOnInit() {}
+
+
   onSubmitEdit(editForm, id) {
     this.letterService.edit(editForm.value, id).subscribe(
       () => {},

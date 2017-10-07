@@ -148,7 +148,7 @@ app-user::-webkit-scrollbar-corner{
 @media (min-width: 600px) {
   div.background {
     /*margin: 20px 1% 20px 2%;*/
-    width: 70%;
+    width: 100%;
     float: left;
   }
   div.paper {

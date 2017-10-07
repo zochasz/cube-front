@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from './../../shared/models/user.model';
@@ -10,10 +10,10 @@ import * as _ from 'lodash';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit, OnChanges {
-  @Output() onUpdated: EventEmitter<User> = new EventEmitter<User>();
-  user: User;
+export class UserComponent implements OnInit {
+  @Input() user: User;
   error: string;
+  
   private showEducation = false;
   private showJob = false;
 
@@ -23,34 +23,14 @@ export class UserComponent implements OnInit, OnChanges {
     private routes: ActivatedRoute
   ){}
 
-  ngOnInit() {
-    this.fetchUser();
-  }
-
-  ngOnChanges() {
-    this.fetchUser();
-  }
-
-  fetchUser(){
-    this.userService.get().subscribe(
-      user => {
-        this.user = user;
-        this.emitUser();
-      },
-      error => console.log(error)
-    );
-  }
-
-  emitUser() {
-    this.onUpdated.emit(this.user);
-  }
+  ngOnInit() {}
 
   onSubmitEdit(editForm) {
     this.user = editForm.value
     this.userService.edit(this.user).subscribe(
       (user) => {
         this.user = user;
-        this.emitUser();
+        // this.emitUser();
       },
       (error) => {this.error = error}
     )

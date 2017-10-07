@@ -1,0 +1,11 @@
+
+@media (min-width: 600px) {
+  app-cv {
+    width: 70%;
+    float: left;
+  }
+  app-user  {
+    width: 30%;
+    float: left;
+  }
+}

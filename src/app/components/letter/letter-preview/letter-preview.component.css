@@ -1,0 +1,11 @@
+
+@media (min-width: 600px) {
+  app-letter {
+    width: 70%;
+    float: left;
+  }
+  app-letter-detail  {
+    width: 30%;
+    float: left;
+  }
+}

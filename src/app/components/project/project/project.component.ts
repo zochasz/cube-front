@@ -1,8 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 import { Project } from './../../../shared/models/project.model';
-import { ProjectService } from './../../../shared/services/project.service';
 
 @Component({
   selector: 'app-project',

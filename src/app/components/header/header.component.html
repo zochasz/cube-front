@@ -4,11 +4,11 @@
   <div class="dropdown">
     <button class="dropbtn"></button>
       <div class="dropdown-content">
-        <a *ngIf="user" (click)="register()">Register</a>
-        <a *ngIf="user" (click)="login()">Login</a>
-        <a *ngIf="!user" href="/dashboard">HOME</a>
-        <a *ngIf="!user" href="/cv">CV</a>
-        <a *ngIf="!user" (click)="logout()">Logout</a>
+        <a *ngIf="!user" (click)="register()">Register</a>
+        <a *ngIf="!user" (click)="login()">Login</a>
+        <a *ngIf="user" href="/dashboard">HOME</a>
+        <a *ngIf="user" href="/cv">CV</a>
+        <a *ngIf="user" (click)="logout()">Logout</a>
       </div>
   </div>
 </header>
