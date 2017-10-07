@@ -1,5 +1,5 @@
-<app-project></app-project>
-<div class="edit" (onUpdated)="onUserUpdated($event)">
+<app-project [project]="project"></app-project>
+<div class="edit">
       <form (ngSubmit)="onSubmitEdit(editForm, project?._id )" #editForm="ngForm">
           <label for="title">Title</label>
           <textarea class="height2" (change)="editForm.ngSubmit.emit()" value="{{project?.title}}" type="text" name="title" [(ngModel)]="title"></textarea>

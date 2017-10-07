@@ -24,3 +24,9 @@ input:focus, textarea:focus {
 textarea {
   resize: none;
 }
+button {
+  background-color: #2e2923;
+  color: #e9e6c3;
+  font-size: 20px;
+  border: none;
+}

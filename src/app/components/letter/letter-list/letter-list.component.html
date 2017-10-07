@@ -2,7 +2,6 @@
   <h3> LETTERS </h3>
   <table>
     <tr *ngFor="let letter of letters">
-      <th></th>
       <th (click)="showLetter( letter._id )"> {{ letter.title }}</th>
       <th (click)="delete( letter._id )"> X </th>
     </tr>

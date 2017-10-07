@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Project } from './../../../shared/models/project.model';
@@ -8,11 +8,9 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./project-detail.component.css']
 })
-export class ProjectDetailComponent implements OnInit, OnChanges {
-  @Output() onUpdated: EventEmitter<Project> = new EventEmitter<Project>();
+export class ProjectDetailComponent implements OnInit {
   project: Project;
   error: string;
 
@@ -26,18 +24,11 @@ export class ProjectDetailComponent implements OnInit, OnChanges {
     this.routes.params.subscribe(
       params => this.fetchProject(params['id']));
   }
-  ngOnChanges() {
-    this.routes.params.subscribe(
-      params => this.fetchProject(params['id']));
-  }
-  emitProject() {
-    this.onUpdated.emit(this.project);
-  }
+
   fetchProject(id: string){
     this.projectService.get(id).subscribe(
       (project) => {
         this.project = project
-        this.emitProject()
       },
       error => console.log(error)
     );
@@ -47,7 +38,6 @@ export class ProjectDetailComponent implements OnInit, OnChanges {
     this.projectService.edit(editForm.value, id).subscribe(
       (project) => {
         this.project = project;
-        this.emitProject()
       },
       (error) => {this.error = error}
     )

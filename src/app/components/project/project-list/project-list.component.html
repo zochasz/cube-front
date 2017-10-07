@@ -2,7 +2,6 @@
   <h3> PROJECTS </h3>
     <table>
       <tr *ngFor="let project of projects">
-        <th> </th>
         <th (click)="showProject( project._id )"> {{ project.title }}</th>
         <th (click)="delete( project._id )"> X </th>
       </tr>

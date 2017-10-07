@@ -2,7 +2,6 @@
   <h3> PORTFOLIOS </h3>
   <table>
     <tr *ngFor="let portfolio of portfolios">
-      <th></th>
       <th (click)="showPortfolio( portfolio._id )"> {{ portfolio.title }}</th>
       <th (click)="delete( portfolio._id )"> X </th>
     </tr>

@@ -27,7 +27,10 @@ export class PortfolioDetailComponent implements OnInit {
   }
   fetchPortfolio(id: string) {
     this.portfolioService.get(id).subscribe(
-      portfolio => this.portfolio = portfolio,
+      (portfolio) => {
+        this.portfolio = portfolio
+        console.log(this.portfolio)
+      },
       error => this.error = error
     );
   }

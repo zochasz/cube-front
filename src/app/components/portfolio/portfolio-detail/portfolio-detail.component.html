@@ -4,18 +4,18 @@
           <textarea (change)="editForm.ngSubmit.emit()" value="{{ portfolio?.title }}" type="text" name="title" [(ngModel)]="title"></textarea>
 
           <label for="projects">Projects</label>
-          <!-- <p *ngFor="let project of portfolio.projects"> -->
+          <div *ngFor="let project of portfolio?.projects; let i = index">
+            <button (click)="deleteProject(i)">x</button>
 
+              <p>{{ project.title }}</p>
+          </div>
+          
           <label for="letters">Letters</label>
+          <div *ngFor="let letter of portfolio?.letters; let i = index">
+            <button (click)="deleteLetter(i)">x</button>
+              <p>{{ letter.title }}</p>
+          </div>
 
 
       </form>
 </div>
-
-<!-- <select multiple name="projects" [(ngModel)]="portfolio.projects">
-  <option *ngFor="let project of projects" [value]="project._id">{{ project.title }}</option>
-</select>
-
-<select multiple name="letters" [(ngModel)]="portfolio.letters">
-  <option *ngFor="let letter of letters" [value]="letter._id">{{ letter.title }}</option>
-</select> -->

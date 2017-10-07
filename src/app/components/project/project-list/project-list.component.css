@@ -28,19 +28,14 @@ table {
 }
 tr {
   border: 1px solid grey;
-  /*border-bottom: 5px solid transparent;
-  background-clip: padding-box;*/
   width: 96%;
   height: 50px;
   margin: 5px 2%;
   padding: 10px;
 }
-th:first-of-type{
-  width: 30%;
-  border-right: 1px solid grey;
-}
+
 th:last-of-type{
-  width: 10%;
+  width: 15%;
 }
 @media (min-width: 600px) {
   div {
