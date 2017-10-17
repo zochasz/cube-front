@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
+// import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 
 import { Project } from './../../../shared/models/project.model';
 import { ProjectService } from './../../../shared/services/project.service'

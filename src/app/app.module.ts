@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileUploadModule } from "ng2-file-upload";
 
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
@@ -79,7 +79,6 @@ const routes: Routes = [
     PortfolioNewComponent,
     PortfolioDetailComponent,
     CvComponent,
-    FileSelectDirective,
     ProjectComponent,
     LetterComponent,
     CvPreviewComponent,
@@ -89,6 +88,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FileUploadModule,
     HttpModule,
     FormsModule,
     RouterModule.forRoot(routes)
